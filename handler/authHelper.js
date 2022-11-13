@@ -10,7 +10,7 @@ const auth = (req, res, next) => {
   }
     
   try {
-    const jwtSecretKey = `${process.env.JWT_SECRET_KEY}`;
+    const jwtSecretKey = `${process.env.JWT_SECRET}`;
     const decoded = jwt.verify(token, jwtSecretKey);
     const currentDate = new Date();
     if(decoded.exp * 1000 <currentDate.getTime()){

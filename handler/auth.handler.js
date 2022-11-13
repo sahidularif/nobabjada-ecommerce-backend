@@ -80,7 +80,7 @@ authHandler.login = (req, res, next) => {
                 isAdmin: data.isAdmin,
               },
             },
-            `${process.env.JWT_SECRET_KEY}`,
+            `${process.env.JWT_SECRET}`,
             { expiresIn: "1h" }
           );
 
@@ -111,7 +111,7 @@ authHandler.login = (req, res, next) => {
 authHandler.verifyToken = (req, res, next) => {
   const token = req.body.jwt;
   if (token == null) return res.sendStatus(401);
-  jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) return res.status(403).send("Invalid auth token...");
     res.status(200).json({ decoded });
   })
