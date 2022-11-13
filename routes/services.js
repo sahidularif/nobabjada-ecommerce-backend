@@ -1,9 +1,8 @@
 const express = require('express')
-const { getAllOrder } = require('../handler/service.handler')
-const { Order } = require('../models/Order')
+// const { getAllOrder } = require('../handler/service.handler')
 const { isAdmin } = require('../handler/authHelper')
 const router = express.Router()
-
+const { Order } = require('../models/Order')
 router.get('/getAllOrder', isAdmin, async (req, res) => {
     try {
         const orders = await Order.find();

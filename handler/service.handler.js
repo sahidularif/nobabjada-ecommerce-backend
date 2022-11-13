@@ -1,13 +1,14 @@
-const { Order } = require("../models/Order");
-const serviceHandler = {}
-serviceHandler.getAllOrder = async (req, res, next) => {
+// const { Order } = require("../models/Order");
 
-    try {
-        const orders = await Order.find();
-        res.status(200).send(orders);
-      } catch (err) {
-        res.status(500).json(err);
-      }
+// const serviceHandler = {}
+// serviceHandler.getAllOrder = async (req, res, next) => {
 
-}
-module.exports = serviceHandler
+//     try {
+//         const orders = await Order.find();
+//         res.status(200).send(orders);
+//       } catch (err) {
+//         res.status(500).json(err);
+//       }
+
+// }
+// module.exports = serviceHandler
