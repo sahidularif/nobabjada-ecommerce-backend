@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 5000
 // const stripe = require('./routes/stripe');
-// const {routes } = require('./routes/auth.routes');
-// const { productRoute } = require('./routes/services');
+const {routes } = require('./routes/auth.routes');
+const { productRoute } = require('./routes/services');
 require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
@@ -15,9 +15,9 @@ app.use(cors());
 require('./database')();
 
 
-// app.use('/auth', routes);
+app.use('/auth', routes);
 // app.use('/stripe', stripe);
-// app.use('/product', productRoute);
+app.use('/product', productRoute);
 
 app.get("/", (req, res) => {
     res.send({ message: "Welcome" })
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 
 // Server Liseting 
 const server = app.listen(port, () => {
-    console.log('Connected to port ' + port)
+    console.log('Connected to port sss' + port)
 })
 
 // app.use((req, res, next) => {
