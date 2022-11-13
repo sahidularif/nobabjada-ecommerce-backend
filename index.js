@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-// Connect to  the Mongodb database
+// Connect to  the Mongodb databases
 // require('./database')();
 
 
