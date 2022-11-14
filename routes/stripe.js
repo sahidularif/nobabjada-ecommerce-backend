@@ -170,7 +170,7 @@ router.post(
           try {
             // CREATE ORDER
             createOrder(customer, data);
-            res.status(200).json({message: 'Order created', data: data})
+            res.status(200).json({ message: 'Order created', data: data })
           } catch (err) {
             console.log(typeof createOrder);
             console.log(err);
