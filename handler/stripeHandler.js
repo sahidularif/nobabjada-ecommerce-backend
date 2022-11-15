@@ -166,9 +166,7 @@ stripeHandler.webhook =
           try {
             // CREATE ORDER
             createOrder(customer, data);
-            console.log("Ordered");
             res.status(200).json({ message: 'Order created', data: data })
-            res.status(200).send("Order created")
           } catch (err) {
             console.log(typeof createOrder);
             console.log(err);
