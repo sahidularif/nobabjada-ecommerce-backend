@@ -20,7 +20,7 @@ app.use('/stripe', stripe);
 app.use('/product', productRoute);
 
 app.get("/", (req, res) => {
-    res.send({ message: "Welcome" })
+    res.json({ message: "Welcome" })
 });
 
 
