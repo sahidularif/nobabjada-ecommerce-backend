@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 5000
-const stripe = require('./routes/stripe');
+const port = 5000 || process.env.PORT
 const {routes } = require('./routes/auth.routes');
 const { productRoute } = require('./routes/services');
+const { stripe } = require('./routes/stripe.routes');
 require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
@@ -26,15 +26,9 @@ app.get("/", (req, res) => {
 
 // Server Liseting 
 const server = app.listen(port, () => {
-    console.log('Connected to port' + port)
+    console.log('Connected to port ' + port)
 })
 
-// app.use((req, res, next) => {
-//     // Error goes via `next()` method
-//     setImmediate(() => {
-//         next(new Error('Something went wrong'));
-//     });
-// });
 
 app.use((err, req, res, next) => {
     if (res.headersSent) {
